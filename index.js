@@ -1,16 +1,16 @@
 const express = require('express')
-const app = express();
+const index = express();
 const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
 const dotenv = require("dotenv")
 dotenv.config()
 
-app.use(express.static('./public'))
+index.use(express.static('./public'))
 console.log('Task Manager App')
 // app.use(express.urlencoded({extended: false}))
-app.use(express.json())
+index.use(express.json())
 
-app.use('/api/v1/tasks', tasks)
+index.use('/api/v1/tasks', tasks)
 
 const port = process.env.PORT || 3000
 const start = async()=>{
@@ -20,7 +20,7 @@ const start = async()=>{
         .catch(error => console.log(error))
 }
 start().then(()=>{
-    app.listen(port, () => {
+    index.listen(port, () => {
         console.log('Server is listening at port 3000')
     })
 })
