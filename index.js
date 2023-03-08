@@ -7,7 +7,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config();
 
-index.use(express.static(path.join(__dirname, "public")));
+// index.use(express.static(path.join(__dirname, "./public")));
+index.use(express.static('./public'));
 console.log("Task Manager App");
 // app.use(express.urlencoded({extended: false}))
 index.use(express.json());
